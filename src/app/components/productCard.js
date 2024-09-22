@@ -1,65 +1,45 @@
 import Image from 'next/image';
 import React from 'react';
-import { FaLeaf, FaRecycle, FaHandPaper } from 'react-icons/fa';
-
-const products = [
-  {
-    name: 'Eco-friendly Sofa',
-    description: 'A comfortable and stylish sofa made from recycled materials.',
-    price: 350,
-    imageUrl: '/sofa.jpg',
-  },
-  {
-    name: 'Wooden Coffee Table',
-    description: 'A handmade coffee table crafted from reclaimed wood.',
-    price: 150,
-    imageUrl: '/coffee-table.jpg',
-  },
-  {
-    name: 'Organic Planter Box',
-    description: 'A beautiful planter box made from sustainable wood.',
-    price: 80,
-    imageUrl: '/planter.jpg',
-  }
-];
+import { FaShoppingCart } from 'react-icons/fa';
+import { productos as productList } from '../services/products';
+import Link from 'next/link';
+import { priceFont } from '../fonts/price';
 
 export default function ProductGrid() {
   return (
-    <div className=" py-16 px-4 sm:px-6 lg:px-8">
+    <section id='catalogo' className="pb-32 pt-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <h2 className="text-3xl font-bold text-center mb-12">Catálogo</h2>
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {products.map((product, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-9">
+          {productList.map((product, index) => (
             <div
               key={index}
-              className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-amber-100 hover:bg-opacity-75 hover:rounded-md transition-transform duration-300 hover:scale-105"
+              className=" rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300"
             >
-              <Image
-                className="w-full h-64 object-cover cursor-pointer"
-                width={300}
-                height={300}
-                src='/product.jpg'
-                alt={product.name}
-              />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2 text-amber-800">
-                  {product.name}
+              <Link href={`/pdp/${product.id}`} passHref>
+                <div className="relative cursor-pointer">
+                  <Image
+                    className="w-full h-64 object-cover transition-transform duration-300 transform hover:scale-105"
+                    width={300}
+                    height={300}
+                    src={product.images[0]}
+                    alt={product.name}
+                  />
                 </div>
-                <p className="text-gray-700 text-base">{product.description}</p>
-              </div>
-              <div className="px-6 pt-4 pb-2 flex justify-between items-center">
-                <span className="inline-block bg-amber-200 rounded-full px-3 py-1 text-sm font-semibold text-amber-800 mr-2">
-                  ${product.price}
-                </span>
-                <div className="flex space-x-2">
-                  <FaLeaf className="text-green-600" />
-                  <FaRecycle className="text-blue-600" />
-                  <FaHandPaper className="text-amber-600" />
+              </Link>
+              <div className="p-4">
+                <Link href={`/pdp/${product.id}`} className='hover:text-amber-300' passHref>
+                <h3 className="text-gray-900">{product.productName}</h3>
+                </Link>
+                <div className="mt-4 flex items-center ">
+                  <span className={`${priceFont.className} text-gray-800`}>${product.price} UYU</span>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

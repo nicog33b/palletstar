@@ -1,122 +1,140 @@
 'use client';
+
 import React, { useState, useEffect, useContext } from 'react';
-import { FiStar, FiShoppingCart, FiHeart, FiShare2, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { useParams } from 'next/navigation'; // O usar `useRouter` si `useParams` no funciona
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { FiHeart, FiShare2, FiMinus, FiPlus } from 'react-icons/fi';
 import { CartContext } from '@/app/components/cart/cartContext';
+import { productos } from '@/app/services/products'; // Asegúrate de que este import sea correcto y se encuentre antes de usarlo
 
-// Array de productos
-const productos = [
-  {
-    id: 1,
-    productName: 'Sillón dos cuerpos',
-    price: 2590,
-    description: 'Sillón de dos cuerpos con madera tratada. Perfecto para exteriores.',
-    measures: '1,05 m x 60 cm',
-    images: ['/images/product1/img1.jpg', '/images/product1/img2.jpg', '/images/product1/img3.jpg'],
-    tags: ['sillón', 'madera tratada', 'exterior'],
-  },
-  // Otros productos...
-];
-
-const ProductDetailPage = () => {
-  const { productId } = useParams(); // O `const router = useRouter(); const { productId } = router.query;`
-  const [product, setProduct] = useState(null);
+export default function ProductDetailPage() {
+  const { product } = useParams(); // Asegúrate de que 'product' sea el parámetro que estás usando en tu ruta.
+  const [productDetail, setProductDetail] = useState(null);
   const [mainImage, setMainImage] = useState('');
   const [quantity, setQuantity] = useState(1);
-  
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
-    const productData = productos.find(producto => producto.id === Number(productId));
-    console.log('Product Data:', productData); // Verifica qué se imprime aquí
-    if (productData) {
-      setProduct(productData);
-      setMainImage(productData.images[0]);
+    if (product) {
+      const productData = productos.find((producto) => producto.id === Number(product));
+      if (productData) {
+        setProductDetail(productData);
+        setMainImage(productData.images[0]);
+      }
     }
-  }, [productId]);
+  }, [product]);
 
-  if (!product) {
-    return <p>Cargando...</p>;
+  if (!productDetail) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+      </div>
+    );
   }
 
+  const handleQuantityChange = (change) => {
+    setQuantity((prevQuantity) => Math.max(1, prevQuantity + change));
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex flex-col md:flex-row -mx-4">
-        {/* Galería de imágenes */}
-        <div className="md:flex-1 px-4">
-          <div className="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
-            <img
+    <div className="container mx-auto px-4 py-8 max-w-7xl">
+      <div className="flex flex-col lg:flex-row -mx-4">
+        {/* Image Gallery */}
+        <div className="lg:flex-1 px-4 mb-8 lg:mb-0">
+          <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg mb-4">
+            <Image
               src={mainImage}
-              alt={product.productName}
-              className="h-full w-full object-cover rounded-lg"
+              alt={productDetail.productName}
+              fill
+              className="transition-transform duration-300 hover:scale-105 object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={100}
+              priority
             />
           </div>
-          <div className="flex -mx-2 mb-4">
-            {product.images.map((img, i) => (
-              <div className="flex-1 px-2" key={i}>
-                <button
-                  onClick={() => setMainImage(img)}
-                  className="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center"
-                >
-                  <img
-                    src={img}
-                    alt={`Thumbnail ${i + 1}`}
-                    className="h-full w-full object-cover rounded-lg"
-                  />
-                </button>
-              </div>
+          <div className="grid grid-cols-3 gap-4">
+            {productDetail.images.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setMainImage(img)}
+                className="relative aspect-square overflow-hidden rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              >
+                <Image
+                  src={img}
+                  alt={`Vista ${i + 1} de ${productDetail.productName}`}
+                  fill
+                  className="transition-opacity duration-300 hover:opacity-75 object-cover"
+                  quality={100}
+                />
+              </button>
             ))}
           </div>
         </div>
-        {/* Detalles del producto */}
-        <div className="md:flex-1 px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">{product.productName}</h2>
+        {/* Product Details */}
+        <div className="lg:flex-1 px-4">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">{productDetail.productName}</h1>
           <p className="text-gray-600 text-sm mb-4">
-            SKU: {product.id} | Tipo: {product.tags.join(', ')}
+            SKU: {productDetail.id} | Categoría: {productDetail.tags.join(', ')}
           </p>
-          <div className="mb-4">
-            <span className="font-bold text-3xl text-gray-800">${product.price}</span>
+          <div className="mb-6">
+            <span className="text-4xl font-bold text-gray-900">
+              ${productDetail.price.toLocaleString()}
+            </span>
             <span className="text-gray-600 ml-2 text-sm">Impuestos incluidos</span>
           </div>
-          <div className="mb-4">
-            <h3 className="text-xl font-semibold mb-2">Descripción del producto</h3>
-            <p className="text-gray-600">{product.description}</p>
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">Descripción del producto</h2>
+            <p className="text-gray-700 leading-relaxed">{productDetail.description}</p>
           </div>
+          <div className="mb-6">
+            <p className="text-gray-700 leading-relaxed">{productDetail.qualityDescription}</p>
+          </div>
+
           <div className="mb-4">
             <h3 className="text-xl font-semibold mb-2">Medidas</h3>
-            <p className="text-gray-600">{product.measures}</p>
+            {Array.isArray(productDetail.measures) ? (
+              productDetail.measures.map((measure, index) => (
+                <p key={index} className="text-gray-600">
+                  {measure}
+                </p>
+              ))
+            ) : (
+              <p className="text-gray-600">{productDetail.measures}</p>
+            )}
           </div>
-          <div className="flex -mx-2 mb-4">
-            <div className="w-1/2 px-2">
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">Cantidad</h2>
+            <div className="flex items-center">
               <button
-                onClick={() => addToCart(product)}
-                className="w-full bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 focus:outline-none focus:shadow-outline"
-                disabled={!product.availability}
+                onClick={() => handleQuantityChange(-1)}
+                className="text-gray-500 focus:outline-none focus:text-gray-600"
               >
-                Añadir al carrito
+                <FiMinus />
+              </button>
+              <span className="mx-2 text-gray-700">{quantity}</span>
+              <button
+                onClick={() => handleQuantityChange(1)}
+                className="text-gray-500 focus:outline-none focus:text-gray-600"
+              >
+                <FiPlus />
               </button>
             </div>
-            <div className="w-1/2 px-2">
-              <button
-                className="w-full bg-gray-200 text-gray-800 py-2 px-4 rounded-full font-bold hover:bg-gray-300 focus:outline-none focus:shadow-outline"
-                disabled={!product.availability}
-              >
-                Comprar ahora
-              </button>
-            </div>
           </div>
-          <div className="flex items-center mb-4">
-            <button className="mr-2 text-gray-700 hover:text-gray-900 focus:outline-none">
-              <FiHeart className="h-5 w-5" />
-            </button>
-            <button className="text-gray-700 hover:text-gray-900 focus:outline-none">
-              <FiShare2 className="h-5 w-5" />
-            </button>
-          </div>
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+  <button
+    onClick={() => addToCart({ ...productDetail, quantity })}
+    className="flex-1 bg-[#F4A261] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#F48C32] transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
+  >
+    Añadir al carrito
+  </button>
+  <button className="flex-1 bg-[#E0E0E0] text-gray-900 py-3 px-6 rounded-lg font-semibold hover:bg-[#B5B5B5] transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
+    Comprar ahora
+  </button>
+</div>
+
+         
         </div>
       </div>
     </div>
   );
-};
-
-export default ProductDetailPage;
+}
