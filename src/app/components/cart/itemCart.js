@@ -1,13 +1,16 @@
 'use client'
 import React from 'react';
+import Image from 'next/image';
 
 export const CartItem = ({ id, name, price, quantity, removeFromCart }) => (
   <li className="py-6 flex">
     <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
-      <img
-        src={`https://via.placeholder.com/150?text=${name}`}
+      <Image
+        src={`/huerta/1.webp`}
         alt={name}
         className="w-full h-full object-center object-cover"
+        width={300}
+        height={300}
       />
     </div>
 
