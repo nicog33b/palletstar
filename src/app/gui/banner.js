@@ -24,7 +24,7 @@ export default function Banner() {
       image: "/banerr3.jpg",
       title: "Calidad y Durabilidad Garantizadas",
       description: "Muebles hechos para durar toda la vida",
-      link: "/collection",
+      link: "/#catalogo",
     },
   ]
 
