@@ -3,9 +3,10 @@ import React, { useContext } from 'react';
 import { FiX } from 'react-icons/fi';
 import { CartContext } from './cartContext';
 import { CartItem } from './itemCart';
+import Link from 'next/link';
 
 export const Cart = ({ isOpen, toggleCart }) => {
-  const { cart, removeFromCart, clearCart } = useContext(CartContext); // Acceder al contexto
+  const { cart, removeFromCart, clearCart, updateQuantity } = useContext(CartContext); // Acceder al contexto
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -37,7 +38,12 @@ export const Cart = ({ isOpen, toggleCart }) => {
                       <div className="flow-root">
                         <ul role="list" className="-my-6 divide-y divide-gray-200">
                           {cart.map((item) => (
-                            <CartItem key={item.id} {...item} removeFromCart={removeFromCart} />
+                            <CartItem
+                              key={item.id}
+                              {...item}
+                              removeFromCart={removeFromCart}
+                              updateQuantity={updateQuantity} // Pasar la función de actualización
+                            />
                           ))}
                         </ul>
                       </div>
@@ -49,14 +55,15 @@ export const Cart = ({ isOpen, toggleCart }) => {
                       <p>Subtotal</p>
                       <p>${total.toFixed(2)}</p>
                     </div>
-                    <p className="mt-0.5 text-sm text-gray-500">Envío e impuestos calculados al finalizar la compra.</p>
+                  {/*  <p className="mt-0.5 text-sm text-gray-500">Envío e impuestos calculados al finalizar la compra.</p>*/}
                     <div className="mt-6">
+                      <Link href='/cart' passHref onClick={toggleCart}>
                       <button
-                        onClick={clearCart}
-                        className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                        className="w-full flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                       >
                         Finalizar compra
                       </button>
+                      </Link>
                     </div>
                     <div className="mt-6 flex justify-center text-sm text-center text-gray-500">
                       <p>

@@ -4,51 +4,61 @@ import { FaStar, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { fraunces } from "../fonts/fraunces";
 
 const Testimonios = () => {
+
   const testimonials = [
     {
       id: 1,
-      name: "María García",
-      role: "Diseñadora de Interiores",
       content:
-        "Los muebles de pallets son increíbles. La calidad y el diseño superaron mis expectativas. Definitivamente los recomendaré a mis clientes.",
-      avatar: "/images/avatar-maria.jpg",
+        "Excelente en cuanto a presentación, prolijidad. Hermoso el sillón, tal cual lo describen, muy recomendado.",
       rating: 5,
     },
     {
       id: 2,
-      name: "Juan Pérez",
-      role: "Propietario de Café",
       content:
-        "Compramos varios juegos de sillas y mesas para nuestro café al aire libre. Son resistentes, cómodos y nuestros clientes los adoran.",
-      avatar: "/images/avatar-juan.jpg",
-      rating: 4,
+        "Me encantó. Muy conforme con la compra, es lo que esperaba! recomiendo!!!",
+      rating: 5,
     },
     {
       id: 3,
-      name: "Ana Martínez",
-      role: "Ama de Casa",
       content:
-        "El sofá esquinero que compré es perfecto para mi terraza. Es cómodo, duradero y fácil de mantener. ¡Estoy encantada con mi compra!",
-      avatar: "/images/avatar-ana.jpg",
+        "Divino la verdad que muy acorde a la foto y me gustó más que puedes pedir el almohadón también.",
       rating: 5,
     },
     {
       id: 4,
-      name: "Pedro López",
-      role: "Gerente de Restaurante",
       content:
-        "Los muebles de pallets han transformado nuestro espacio exterior. Son resistentes y tienen un estilo único. Estamos muy satisfechos.",
-      avatar: "/images/avatar-pedro.jpg",
+        "Excelente compra, muy buena madera.",
       rating: 5,
     },
     {
       id: 5,
-      name: "Laura Sánchez",
-      role: "Jardinera",
       content:
-        "Las huertas de pallets son perfectas para mi jardín. Son prácticas y muy bonitas. ¡Recomiendo a todos que las prueben!",
-      avatar: "/images/avatar-laura.jpg",
+        "Muy prácticos y cómodos. Buen precio.",
+      rating: 5,
+    },
+    {
+      id: 6,
+      content:
+        "Excelente y recomendables los sillones.",
+      rating: 5,
+    },
+    {
+      id: 7,
+      content:
+        "Muy lindo.",
       rating: 4,
+    },
+    {
+      id: 8,
+      content:
+        "Excelente.",
+      rating: 5,
+    },
+    {
+      id: 9,
+      content:
+        "Muy buen producto. Buena terminación.",
+      rating: 5,
     },
   ];
 

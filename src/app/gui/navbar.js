@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaShoppingCart, FaBars } from "react-icons/fa";
 import { Cart } from "../components/cart/cart";
+import { CartContext } from "../components/cart/cartContext";
 
 const navLinks = [
   { href: "/#catalogo", label: "Catalogo" },
@@ -28,9 +29,16 @@ export default function Navbar() {
 
   const navHeight = isScrolled ? 'h-16' : 'h-24';
   const logoSize = isScrolled ? 'h-12 w-12' : 'h-20 w-20';
+  const bgOpacity = isScrolled ? 'bg-opacity-65' : 'bg-opacity-95';
+  const rounded = isScrolled ? 'rounded-b-3xl' : 'rounded';
+  // Acceso al contexto del carrito
+  const { cart } = useContext(CartContext);
+
+  // Calcular numero de items en el carrito
+  const cartItemCount = cart.length;
 
   return (
-    <nav className={`sticky top-0 z-50 transition-all duration-300 ${navHeight} bg-white shadow-md`}>
+    <nav className={`sticky top-0 z-50 transition-all bg duration-1000 ${navHeight} ${bgOpacity} ${rounded} bg-[#d7d4c4] shadow-md `}>
       <div className="relative container mx-auto p-2">
         <div className="flex justify-between items-center mx-6">
           <Link href="/" className="flex items-center space-x-3">
@@ -65,7 +73,7 @@ export default function Navbar() {
                 aria-label="Toggle Cart"
               />
               <span className="absolute -top-2 -right-2 bg-red-400 text-white text-xs font-bold px-1.5 py-0.5 rounded-full flex items-center justify-center">
-                0
+                {cartItemCount}
               </span>
             </div>
             <button onClick={toggleMenu} className="lg:hidden flex items-center" aria-label="Toggle Menu">

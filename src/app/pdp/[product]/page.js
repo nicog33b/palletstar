@@ -3,16 +3,25 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { FiHeart, FiShare2, FiMinus, FiPlus } from 'react-icons/fi';
+import {  FiMinus, FiPlus } from 'react-icons/fi';
 import { CartContext } from '@/app/components/cart/cartContext';
-import { productos } from '@/app/services/products'; // Asegúrate de que este import sea correcto y se encuentre antes de usarlo
+import { productos } from '@/app/services/products';
+
+import useWhatsApp from '@/app/hooks/useWhatsapp';
+import useNotyf from '@/app/hooks/useNotyf';
+
 
 export default function ProductDetailPage() {
-  const { product } = useParams(); // Asegúrate de que 'product' sea el parámetro que estás usando en tu ruta.
+  const { product } = useParams();
   const [productDetail, setProductDetail] = useState(null);
   const [mainImage, setMainImage] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [price, setPrice] = useState(0)
+
+  const { sendProduct } = useWhatsApp();
+
   const { addToCart } = useContext(CartContext);
+  const { notifySuccess, notifyError} = useNotyf();
 
   useEffect(() => {
     if (product) {
@@ -20,6 +29,7 @@ export default function ProductDetailPage() {
       if (productData) {
         setProductDetail(productData);
         setMainImage(productData.images[0]);
+        setPrice(productData.price)
       }
     }
   }, [product]);
@@ -35,6 +45,16 @@ export default function ProductDetailPage() {
   const handleQuantityChange = (change) => {
     setQuantity((prevQuantity) => Math.max(1, prevQuantity + change));
   };
+
+  const handleAddToCart = () => {
+    notifySuccess("Agregado al carrito");
+    addToCart({ ...productDetail, quantity });
+  };
+
+  const buyNow = () =>{
+
+    sendProduct({name:productDetail.productName, quantity, price})
+  }
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -121,18 +141,18 @@ export default function ProductDetailPage() {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
-  <button
-    onClick={() => addToCart({ ...productDetail, quantity })}
-    className="flex-1 bg-[#F4A261] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#F48C32] transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
-  >
-    Añadir al carrito
-  </button>
-  <button className="flex-1 bg-[#E0E0E0] text-gray-900 py-3 px-6 rounded-lg font-semibold hover:bg-[#B5B5B5] transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
-    Comprar ahora
-  </button>
-</div>
-
-         
+            <button
+              onClick={handleAddToCart}
+              className="flex-1 bg-[#F4A261] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#F48C32] transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
+            >
+              Añadir al carrito
+            </button>
+            <button 
+            onClick={buyNow}
+            className="flex-1 bg-[#E0E0E0] text-gray-900 py-3 px-6 rounded-lg font-semibold hover:bg-[#B5B5B5] transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
+              Comprar ahora
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@
 import React, {useState} from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import { faqs as faqsList } from '../services/faqs'
-import { fraunces } from '../fonts/fraunces';
+
 const FAQ = () =>{
   const [openFaq, setOpenFaq] = useState(null);
   const [faqs,setFaqs] = useState(faqsList);
@@ -25,7 +25,7 @@ const FAQ = () =>{
                   {openFaq === index ? <FaChevronUp /> : <FaChevronDown />}
                 </button>
                 {openFaq === index && (
-                  <div className="p-4 bg-gray-50">
+                  <div className="p-4 bg-gray-50 font-serif text-zinc-600 rounded">
                     <p>{faq.answer}</p>
                   </div>
                 )}

@@ -1,15 +1,14 @@
 'use client'
 import React, { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-
+import useWhatsApp from "../hooks/useWhatsapp";
 const Amedida = () => {
   const [customOrder, setCustomOrder] = useState("");
-
+  const { sendMessage} = useWhatsApp();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const whatsappNumber = '1234567890'; // Reemplazar con el número real
-    const message = encodeURIComponent(customOrder);
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    sendMessage(customOrder);
+    setCustomOrder("")
   };
 
   return (

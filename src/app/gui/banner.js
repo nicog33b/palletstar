@@ -86,7 +86,7 @@ export default function Banner() {
               href={banner.link}
               className="z-20 bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition-colors duration-300 cursor-pointer"
             >
-              Ver Colección
+              Ver Catalogo
             </Link>
           </div>
         </div>
