@@ -12,13 +12,13 @@ export default function Banner() {
       image: "/bannerr1.jpg",
       title: "Diseño y Confort para tu Hogar",
       description: "Descubre nuestra nueva colección de muebles",
-      link: "/collection",
+      link: "/#catalogo",
     },
     {
       image: "/banerr2.jpg",
       title: "Innovación y Estilo en Cada Pieza",
       description: "Encuentra muebles que se adapten a tu estilo de vida",
-      link: "/collection",
+      link: "/#catalogo",
     },
     {
       image: "/banerr3.jpg",
