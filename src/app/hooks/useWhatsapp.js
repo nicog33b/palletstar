@@ -2,7 +2,7 @@ import { useCallback, useContext } from 'react';
 import { CartContext } from '@/app/components/cart/cartContext'; // Importar el contexto
 
 const useWhatsApp = () => {
-  const phoneNumber = '59891366381'; // Número de WhatsApp sin el +
+  const phoneNumber = '59899310309'; // Número de WhatsApp sin el +
   const { cartTotal } = useContext(CartContext); // Obtener el total del carrito del contexto
   
   const sendCart = useCallback((cartItems) => {
