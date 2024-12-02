@@ -31,7 +31,7 @@ export default function FeaturedBenefitsSection() {
               className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300"
             >
               {benefit.icon}
-              <h3 className="text-2xl font-semibold mb-4">{benefit.title}</h3>
+              <h3 className="text-2xl font-semibold mb-4 ff-1">{benefit.title}</h3>
               <p className="text-gray-600">{benefit.description}</p>
             </div>
           ))}

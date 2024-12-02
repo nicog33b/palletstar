@@ -101,7 +101,7 @@ const Testimonios = () => {
 
   return (
     <section id="testimonios" className="relative container px-6 py-12 mx-auto text-center">
-       <h2 className="text-3xl font-bold text-center mb-12">Clientes satisfechos</h2>
+       <h2 className="text-3xl font-bold text-center mb-12 ff-1">Clientes satisfechos</h2>
       <div className="relative flex items-center justify-center px-6">
         {/* Flecha Izquierda */}
         <button

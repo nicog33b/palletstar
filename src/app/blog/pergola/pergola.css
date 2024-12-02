@@ -1,0 +1,6 @@
+body{
+    text-rendering: optimizeSpeed;
+    word-wrap: break-word;
+    overflow-x: hidden;
+}
+

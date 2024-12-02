@@ -1,8 +1,18 @@
 export const productos = [
-    {
+  {
       id: 1,
+      productName: 'Pérgolas a Medida',
+      price: 0,
+      description: 'Es la solución perfecta para disfrutar al aire libre con sombra y estilo. Una pérgola transforma tu jardín o terraza en el lugar ideal para compartir buenos momentos.',
+      qualityDescription:'Materiales de la mejor calidad, planificación y armado. Consulte.',
+      measures: '1,05 m x 60 cm',
+      images: ['/pergola/p1.jpeg', '/pergola/p2.jpeg', '/pergola/p3.jpeg'],
+      tags: ['sillón dos cuerpos', 'pallet', 'sillon', 'sillon de madera', 'exterior'],
+    },  
+  {
+      id: 2,
       productName: 'Sillón dos cuerpos De Pallet',
-      price: 2590,
+      price: 2690,
       description: 'Sillón de dos cuerpos de pallet importados, mesa ratona: $2590',
       qualityDescription:'Trabajamos con excelentes materiales para brindar una calidad superior logrando la mayor durabilidad del mercado Sillones y mesas ratonas con maderas tratadas (no pallets descartables, no tacos)',
       measures: '1,05 m x 60 cm',
@@ -10,9 +20,9 @@ export const productos = [
       tags: ['sillón dos cuerpos', 'pallet', 'sillon', 'sillon de madera', 'exterior'],
     },
     {
-      id: 2,
+      id: 3,
       productName: 'Juego De Sillones De Pallet',
-      price: 7200,
+      price: 7500,
       description: 'Juego de dos sillones de dos cuerpos mas mesa ratona en pallet importados',
       qualityDescription:'Trabajamos con excelentes materiales para brindar una calidad superior logrando la mayor durabilidad del mercado Sillones y mesas ratonas con maderas tratadas (no pallets descartables, no tacos)',
       measures: [
@@ -23,9 +33,9 @@ export const productos = [
       tags: ['sillón', 'madera tratada', 'exterior'],
     },
     {
-      id: 3,
+      id: 4,
       productName: 'Tres Sillones + Mesa Ratona',
-      price: 9190,
+      price: 9500,
       description: 'Juego compuesto por tres sillones de dos cuerpos mas mesa ratona en pallets importados.',
       qualityDescription:'Trabajamos con excelentes materiales para brindar una calidad superior logrando la mayor durabilidad del mercado Sillones y mesas ratonas con maderas tratadas (no pallets descartables, no tacos)',
       measures: [
@@ -36,7 +46,7 @@ export const productos = [
       tags: ['sillón', 'madera tratada', 'exterior'],
     },
     {
-      id: 4,
+      id: 5,
       productName: 'Huerta elevada',
       price: 2600,
       description: 'Realizada en madera maciza en pino cepillado, con protector de madera Lusol y aislada en nylon 240 micrones. (de mayor grosor), incluye agujeros para drenaje. ideal para plantaciones como perejil, oregano, apio, frutillas. ',

@@ -80,7 +80,7 @@ export default function Banner() {
             <div className="absolute inset-0 bg-black/40" />
           </div>
           <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-4">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center max-w-4xl">{banner.title}</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center max-w-4xl ff-1">{banner.title}</h1>
             <p className="text-xl md:text-2xl mb-8 text-center max-w-2xl">{banner.description}</p>
             <Link
               href={banner.link}

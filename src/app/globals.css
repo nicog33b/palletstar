@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+
 body{
     background-color: #f5f4ed;
+    font-family: "Montserrat", serif; ;
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+.ff-1{
+    font-family: "Funnel Display", sans-serif;
+}
+

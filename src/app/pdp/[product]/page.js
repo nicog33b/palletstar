@@ -92,7 +92,7 @@ export default function ProductDetailPage() {
         </div>
         {/* Product Details */}
         <div className="lg:flex-1 px-4">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{productDetail.productName}</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2 ff-1">{productDetail.productName}</h1>
           <p className="text-gray-600 text-sm mb-4">
             SKU: {productDetail.id} | Categoría: {productDetail.tags.join(', ')}
           </p>

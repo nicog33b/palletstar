@@ -16,7 +16,7 @@ const useWhatsApp = () => {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${urlEncodedMessage}`;
 
     window.open(whatsappUrl, '_blank');
-  }, [phoneNumber, cartTotal]);
+  }, [phoneNumber, cartTotal]); 
 
   const sendProduct = useCallback((product) => {
     const greeting = "Hola, quiero encargar el siguiente producto:";

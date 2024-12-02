@@ -13,7 +13,7 @@ const FAQ = () =>{
 
     <>
     <section id='preguntas' className="px-4 md:px-24 py-3 my-12">
-          <h2 className="text-3xl font-bold text-center mb-12">Preguntas Frecuentes</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 ff-1">Preguntas Frecuentes</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">

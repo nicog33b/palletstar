@@ -64,7 +64,7 @@ const Footer = () => {
 
         {/* Información adicional */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-          <p>&copy; 2024 PalletStars. Todos los derechos reservados.</p>
+          <p className="ff-1">&copy; 2024 PalletStars. Todos los derechos reservados </p>
           <div className="flex space-x-4">
             {policyLinks.map((link, index) => (
               <Link

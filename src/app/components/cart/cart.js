@@ -21,7 +21,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
                 <div className="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
                   <div className="flex-1 py-6 overflow-y-auto px-4 sm:px-6">
                     <div className="flex items-start justify-between">
-                      <h2 className="text-lg font-medium text-gray-900">Carrito de compras</h2>
+                      <h2 className="text-lg font-medium text-gray-900 ff-1">Carrito de compras</h2>
                       <div className="ml-3 h-7 flex items-center">
                         <button
                           type="button"

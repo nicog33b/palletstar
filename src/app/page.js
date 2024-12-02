@@ -4,8 +4,10 @@ import ProductCard from "./components/productCard";
 import Testimonios from "./components/testimonios";
 import Banner from "./gui/banner";
 
+
+
 export default function Home() {
-  return (
+  return(
    <>
    <Banner/>
    <FeaturedBenefitsSection/>
@@ -13,7 +15,6 @@ export default function Home() {
   <section id='catalogo mb-2'></section>
    <Testimonios/>
    <FAQ/>
-
    </>
   );
 }
