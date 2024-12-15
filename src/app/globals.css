@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic:wght@400;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monda:wght@400..700&display=swap');
 
 body{
-    background-color: #f5f4ed;
     font-family: "Montserrat", serif; ;
 }
 
@@ -16,6 +17,89 @@ html{
 
 
 .ff-1{
-    font-family: "Funnel Display", sans-serif;
+    font-family: "Monda", sans-serif;
 }
 
+
+
+
+
+#catalogo-productos{
+ background-color: white!important;   
+}
+
+
+
+.pergola-slider .slick-dots {
+    bottom: -30px;
+  }
+  
+  .pergola-slider .slick-dots li button:before {
+    font-size: 10px;
+    color: #4a5568;
+    opacity: 0.5;
+  }
+  
+  .pergola-slider .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #2d3748;
+  }
+  
+  .pergola-slider .slick-prev,
+  .pergola-slider .slick-next {
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .pergola-slider .slick-prev:before,
+  .pergola-slider .slick-next:before {
+    font-size: 40px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  @media (max-width: 640px) {
+    .pergola-slider .slick-prev {
+      left: 10px;
+    }
+    .pergola-slider .slick-next {
+      right: 10px;
+    }
+  }
+  
+  .pergola-slider .slick-slide {
+    padding: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .pergola-slider .slick-center {
+    transform: scale(1.05);
+  }
+  
+  
+
+
+  .pergola-img{
+    height: 600px;
+    border-radius: 30px;
+    object-fit: cover;
+                                                                                            
+  }
+
+  .slick-dots li button:before {
+   font-size: 22px !important;
+  }
+
+
+
+.framer-title{
+  font-weight: 100;
+  border-bottom: 0.32px solid rgb(174, 167, 167);
+  font-size: 2rem;
+  text-align: left!important;
+}
+
+.slick-dots li button:before {
+margin-top: 1rem;
+}

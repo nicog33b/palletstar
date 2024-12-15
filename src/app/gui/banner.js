@@ -9,6 +9,12 @@ export default function Banner() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const banners = [
     {
+      image:"/banner-pergola.jpg",
+      title: "Elegancia y Sombra para tu Jardín",
+      description: "Explora nuestra exclusiva colección de pérgolas diseñadas para transformar tus espacios exteriores.",
+      link: "/#pergolas"
+    },    
+    {
       image: "/bannerr1.jpg",
       title: "Diseño y Confort para tu Hogar",
       description: "Descubre nuestra nueva colección de muebles",
@@ -44,7 +50,7 @@ export default function Banner() {
   }
 
   return (
-    <div className="relative h-[60vh] md:h-[80vh] overflow-hidden">
+    <div className="relative h-[100vh] md:h-[80vh] overflow-hidden">
       <div className="absolute inset-0 flex justify-between items-center z-10 px-4">
         <button
           onClick={goToPrevious}
@@ -75,7 +81,7 @@ export default function Banner() {
               fill
               sizes="100vw"
               priority={index === 0}
-              className="object-cover object-center"
+              className=" object-center object-cover"
             />
             <div className="absolute inset-0 bg-black/40" />
           </div>

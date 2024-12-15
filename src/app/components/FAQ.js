@@ -4,16 +4,17 @@
 import React, {useState} from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import { faqs as faqsList } from '../services/faqs'
-
+import motionTitle from '../hooks/gui-hook';
 const FAQ = () =>{
   const [openFaq, setOpenFaq] = useState(null);
   const [faqs,setFaqs] = useState(faqsList);
-
+  const { titleh1} = motionTitle();
   return(
 
     <>
-    <section id='preguntas' className="px-4 md:px-24 py-3 my-12">
-          <h2 className="text-3xl font-bold text-center mb-12 ff-1">Preguntas Frecuentes</h2>
+    <section id='preguntas' className="px-4 md:px-24 mt-12 py-20  bg-[#f5f4ed]">     
+         <div className='container mx-auto'>
+          {titleh1('Preguntas frecuentes')};
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -32,6 +33,7 @@ const FAQ = () =>{
               </div>
             ))}
           </div>
+          </div> 
         </section>
     
     </>

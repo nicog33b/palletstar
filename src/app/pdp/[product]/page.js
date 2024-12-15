@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import {  FiMinus, FiPlus } from 'react-icons/fi';
 import { CartContext } from '@/app/components/cart/cartContext';
-import { productos } from '@/app/services/products';
+import { productos } from '@/app/services/grid-producto';
 
 import useWhatsApp from '@/app/hooks/useWhatsapp';
 import useNotyf from '@/app/hooks/useNotyf';
@@ -143,7 +143,7 @@ export default function ProductDetailPage() {
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
             <button
               onClick={handleAddToCart}
-              className="flex-1 bg-[#F4A261] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#F48C32] transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
+              className="flex-1 bg-[#F4A261] hover:bg-[#F48C32] text-white py-3 px-6 rounded-lg font-semibold  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
             >
               Añadir al carrito
             </button>

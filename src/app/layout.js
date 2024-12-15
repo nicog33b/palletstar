@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./styles/global.scss";
 import Footer from "./gui/footer";
 import Navbar from "./gui/navbar";
 import ShippingBanner from "./gui/shippingBanner";
@@ -28,7 +29,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html >
-      <body className={montserrat.className}>
+      <body>
       <CartProvider>
         <ShippingBanner/>
         <Navbar/>

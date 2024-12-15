@@ -71,7 +71,7 @@ export default function CheckoutDesktop() {
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm font-semibold text-gray-900">${item.price.toFixed(2)}</div>
+                  <div className="text-sm font-semibold text-gray-900">${item.price}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex text-left">

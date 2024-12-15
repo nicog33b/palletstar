@@ -30,7 +30,7 @@ const policyLinks = [
 
 const Footer = () => {
   return (
-    <footer className="text-zinc-800 py-8">
+    <footer className="text-zinc-800 py-8 bg-[#f5f4ed]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Logo */}
@@ -64,7 +64,7 @@ const Footer = () => {
 
         {/* Información adicional */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-          <p className="ff-1">&copy; 2024 PalletStars. Todos los derechos reservados </p>
+          <p className="ff-1">&copy; 2024 PalletStars. Desarrollado por <span className='text-blue-950 brightness-125 text-md text-bold'> KuberaLabs </span> Crea tu pagina web <Link href='https://wa.me/59894272390?text=Hola,%20estoy%20interesado%20en%20crear%20una%20página%20web.' className='text-blue-600'>Aqui</Link> </p>
           <div className="flex space-x-4">
             {policyLinks.map((link, index) => (
               <Link

@@ -37,8 +37,10 @@ export const Cart = ({ isOpen, toggleCart }) => {
                     <div className="mt-8">
                       <div className="flow-root">
                         <ul role="list" className="-my-6 divide-y divide-gray-200">
+              
                           {cart.map((item) => (
                             <CartItem
+                              name={item.productName}
                               key={item.id}
                               {...item}
                               removeFromCart={removeFromCart}

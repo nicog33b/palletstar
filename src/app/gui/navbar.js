@@ -9,8 +9,9 @@ import { CartContext } from "../components/cart/cartContext";
 
 const navLinks = [
   { href: "/#catalogo", label: "Catalogo" },
+  { href:"/blog/pergola", label: "Pergolas"},
   { href: "/#preguntas", label: "Preguntas" },
-  { href: "/amedida", label: "Pide a Medida" },
+  { href: "/amedida", label: "Contratar servicio" },
 ];
 
 export default function Navbar() {
@@ -27,10 +28,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navHeight = isScrolled ? 'h-16' : 'h-24';
-  const logoSize = isScrolled ? 'h-12 w-12' : 'h-20 w-20';
-  const bgOpacity = isScrolled ? 'bg-opacity-65' : 'bg-opacity-95';
-  const rounded = isScrolled ? 'rounded-b-3xl' : 'rounded';
+  const logoSize = isScrolled ? 'h-12 w-12' : 'h-16 w-16';
   // Acceso al contexto del carrito
   const { cart } = useContext(CartContext);
 
@@ -38,7 +36,7 @@ export default function Navbar() {
   const cartItemCount = cart.length;
 
   return (
-    <nav className={`sticky top-0 z-50 transition-all bg duration-1000 ${navHeight} ${bgOpacity} ${rounded} bg-[#d7d4c4] shadow-md `}>
+    <nav className={`sticky top-0 z-50 transition-all bg duration-1000 bg-white shadow-md `}>
       <div className="relative container mx-auto p-2">
         <div className="flex justify-between items-center mx-6">
           <Link href="/" className="flex items-center space-x-3">
@@ -57,7 +55,7 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={href}
-                className="text-[#8B5E3C] font-semibold hover:text-black transition-colors duration-200 border-b-2 border-transparent hover:border-black pb-1"
+                className="text-zinc-700 px-4 rounded-lg font-bold hover:bg-[#f4ad32] hover:text-white"
               >
                 {label}
               </Link>
