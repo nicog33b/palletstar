@@ -8,14 +8,14 @@ import { montserrat } from "./fonts/montserrat";
 import {GoogleAnalytics} from '@next/third-parties/google'
 
 export const metadata = {
-  title: "Palletstars - Sillones de Pallets, Decks y Pérgolas para Uruguayos!",
+  title: "Palletstars - Sillones de Pallets, Decks y Pérgolas en Uruguay!",
   description: "Palletstars, trabajamos con pallet de alta calidad, brindamos la mejor durabilidad del mercado, sillones de pallets, pergolas y decks.",
-  keywords: ["Palletstars", "sillones de uno y dos cuerpos", "pérgolas", "sillones de pallets", "sillon de pallet con mesa", "muebles artesanales", "pérgolas personalizadas","decks de madera","deck madera","Uruguay"],
+  keywords: ["Palletstars", "sillones de uno y dos cuerpos", "pérgolas", "sillones de pallets", "sillon de pallet con mesa", "muebles artesanales", "pérgolas personalizadas","decks de madera","deck madera","Uruguay","Pergolas personalizadas"],
   author: "@KuberaLabs",
   charset: "UTF-8",
   robots: "index, follow",
   og: {
-    title: "Palletstars - Sillones Artesanales de Palets y Pérgolas",
+    title: "Palletstars - Sillones, muebles de Pallets y Pérgolas",
     description: "Palletstars, trabajamos con pallet de alta calidad, brindamos la mejor durabilidad del mercado, sillones de pallets, pergolas y decks.",
     image: "https://www.palletstars.uy/favicon.ico",
     url: "https://www.palletstars.uy",

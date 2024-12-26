@@ -1,6 +1,8 @@
 'use client';
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
+
 
 const PergolaForm = () => {
   const form = useRef();
@@ -9,23 +11,33 @@ const PergolaForm = () => {
     e.preventDefault();
 
     emailjs
-    .sendForm(
-      "service_5vdse79", // Service ID
-      "template_zspgclp", // Template ID
-      form.current,
-      "bzvpY5ZGwsqDu3T_3" // Public Key
-    )
-    .then(
-      (result) => {
-        alert("Mensaje enviado con éxito!");
-        console.log(result.text);
-      },
-      (error) => {
-        alert("Error al enviar el mensaje. Inténtalo de nuevo.");
-        console.log(error.text);
-      }
-    );
-    e.target.reset();
+  .sendForm(
+    "service_5vdse79", // Service ID
+    "template_zspgclp", // Template ID
+    form.current,
+    "bzvpY5ZGwsqDu3T_3" // Public Key
+  )
+  .then(
+    (result) => {
+      Swal.fire({
+        title: "¡Mensaje Enviado!",
+        text: "Gracias por contactarnos. Te responderemos pronto.",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+      });
+      console.log(result.text);
+    },
+    (error) => {
+      Swal.fire({
+        title: "Error",
+        text: "Ocurrió un problema al enviar el mensaje. Inténtalo nuevamente.",
+        icon: "error",
+        confirmButtonText: "Cerrar",
+      });
+      console.error(error.text);
+    }
+  );
+e.target.reset();
   };
 
   return (
