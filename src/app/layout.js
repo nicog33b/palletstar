@@ -4,26 +4,42 @@ import Footer from "./gui/footer";
 import Navbar from "./gui/navbar";
 import ShippingBanner from "./gui/shippingBanner";
 import { CartProvider } from "./components/cart/cartContext";
-import { montserrat } from "./fonts/montserrat";
 import {GoogleAnalytics} from '@next/third-parties/google'
 
+
 export const metadata = {
-  title: "Palletstars - Sillones de Pallets, Decks y Pérgolas en Uruguay!",
-  description: "Palletstars, trabajamos con pallet de alta calidad, brindamos la mejor durabilidad del mercado, sillones de pallets, pergolas y decks.",
-  keywords: ["Palletstars", "sillones de uno y dos cuerpos", "pérgolas", "sillones de pallets", "sillon de pallet con mesa", "muebles artesanales", "pérgolas personalizadas","decks de madera","deck madera","Uruguay","Pergolas personalizadas"],
+  title: "Pallet Stars - Sillones de Palets, Mesas Ratonas y Pérgolas en Uruguay",
+  description: "Descubre en Pallet Stars sillones de palets para exterior, mesas ratonas hechas con pallets y pérgolas personalizadas de alta calidad en Uruguay. ¡Durabilidad y estilo para tu jardín!",
+  keywords: [
+    "PalletStars",
+    "palletstars",
+    "sillones de palets",
+    "sillones de pallets",
+    "sillon de pallets",
+    "sillones de pallets para exterior",
+    "mesa ratona palets",
+    "pérgolas de palets",
+    "pergolas a medida",
+    "decks de palets",
+    "decks a medida",
+    "muebles de pallets",
+    "sillón de palet",
+    "decks de madera",
+    "muebles artesanales",
+    "Uruguay",
+    "precios de sillones de palets",
+  ],
   author: "@KuberaLabs",
   charset: "UTF-8",
   robots: "index, follow",
   og: {
-    title: "Palletstars - Sillones, muebles de Pallets y Pérgolas",
-    description: "Palletstars, trabajamos con pallet de alta calidad, brindamos la mejor durabilidad del mercado, sillones de pallets, pergolas y decks.",
-    image: "https://www.palletstars.uy/favicon.ico",
+    title: "Pallet Stars - Sillones de Palets y Muebles para Exterior",
+    description: "Sillones de palets, mesas ratonas y pérgolas de alta calidad en Pallet Stars. ¡Muebles artesanales duraderos para tu jardín o living en Uruguay!",
+    image: "https://www.palletstars.uy/images/og-image.jpg", // Cambia a una imagen representativa, no favicon
     url: "https://www.palletstars.uy",
-    type: "website"
+    type: "website",
   },
-
 };
-
 
 
 export default function RootLayout({ children }) {
